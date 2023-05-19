@@ -23,9 +23,9 @@ spec:
       - name: "image.repository"
         value: image-registry.openshift-image-registry.svc:5000/{{username}}/poi-map-app
       - name: app.gatewayApiUrl
-        value: http://poi-gateway-app-{{username}}.apps.summit23rock.n26o.p1.openshiftapps.com
+        value: http://poi-gateway-app-{{username}}{{cluster}}
       - name: app.websocketEndpoint
-        value: ws://poi-gateway-app-{{username}}.apps.summit23rock.n26o.p1.openshiftapps.com/ws-server-endpoint
+        value: ws://poi-gateway-app-{{username}}{{cluster}}/ws-server-endpoint
   destination:
     server: https://kubernetes.default.svc
     namespace: {{username}}
