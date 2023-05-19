@@ -18,6 +18,8 @@ spec:
         value: {{username}}/poi-backend-app
       - name: "app.namespace"
         value: {{username}}
+      - name: "app.cluster"
+        value: {{cluster}}
   destination:
     server: https://kubernetes.default.svc
     namespace: {{username}}

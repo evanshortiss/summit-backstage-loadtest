@@ -8,8 +8,9 @@ import log from 'barelog'
 export type ApplicationName = 'map-app'|'gateway'|'backend'
 export type UsernameString = `testuser-${number}`
 
-const USER_COUNT = env.get('USER_COUNT').default(1).asIntPositive()
+const USER_COUNT = env.get('USER_COUNT').required().asIntPositive()
 const APP_TYPE = env.get('APP_TYPE').required().asEnum(['map-app','gateway','backend'])
+const CLUSTER = env.get('CLUSTER').required().asString()
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
@@ -51,7 +52,9 @@ async function applyApplicationTypeForUser (app: ApplicationName, user: Username
   const applications = files
     .filter(f => f.startsWith(APP_TYPE))
     .map((f) => {
-      const yaml = readFileSync(join(__dirname, 'applications', f), 'utf-8').replace(/\{\{username\}\}/ig, user)
+      const yaml = readFileSync(join(__dirname, 'applications', f), 'utf-8')
+        .replace(/\{\{username\}\}/ig, user)
+        .replace(/\{\{cluster\}\}/ig, CLUSTER)
       const yamlPath = join('/tmp', user, f)
 
       writeFileSync(join('/tmp', user, f), yaml)
