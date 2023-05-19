@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Summit23Janus1/evanshortiss-frontend-gitops
+    repoURL: https://github.com/Summit23Janus3/ryanj3-frontend-gitops
     targetRevision: HEAD
     path: ./helm/build
     helm:
