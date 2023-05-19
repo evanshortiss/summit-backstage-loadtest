@@ -1,0 +1,24 @@
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "description": "",
+  "exports": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "type": "module",
+  "private": true,
+  "author": "Evan Shortiss",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.16.13",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "barelog": "^0.2.0",
+    "env-var": "^7.3.1",
+    "execa": "^7.1.1"
+  }
+}
